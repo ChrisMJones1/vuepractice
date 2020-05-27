@@ -1,11 +1,12 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 	<head>
 		<title>Intro to v-bind</title>
 		<meta charset="UTF-8">
 		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 		<style>
 			.container{background:#cecece;}
+			.border--yellow{border: yellow 3px solid;}
 		</style>
 	</head>
 	<body>
@@ -38,9 +39,10 @@
 			1. Create an image and set the following attributes with Vue {src, alt, title}
 			2. Augment the span below to include another class called "highlight", which has a yellow border.
 		-->
-		<span v-bind:class="loadClass">
+		<span v-bind:class="[loadClass, highlight]">
 			look at me!
 		</span>
+		<img v-bind:src="myImage" v-bind:alt="myAlt" v-bind:title="myTitle" />
 	</div>
 	
 	<script>
@@ -50,7 +52,11 @@
 		data:{
 			loadClass : 'container',
 			//newStyle : 'font-size:30px;',
-			//newAlt : 'dynamically set alt!'
+			//newAlt : 'dynamically set alt!',
+			myImage : './img/logo.png',
+			myAlt : "C J stylized initials logo",
+			myTitle : "Christopher Jones' Logo",
+			highlight : "border--yellow"
 			
 		}
 	});
