@@ -14,8 +14,19 @@
 	<div id="app">
 		<ul>
 			<li v-for="part in scene">
-				<span>{{part.character}}</span>
-				<p>{{part.dialogue}}</p>
+				<div v-if="part.character === 'MACBETH'">
+					<div style="color: blue">
+						<span>{{part.character}}</span>
+						<p v-for="stanza in part.dialogue.split('\n')">{{stanza}}</p>
+					</div>
+				</div>
+				<div v-else-if="part.character === 'LADY MACBETH'">
+					<div style="color: red">
+						<span>{{part.character}}</span>
+						<p v-for="stanza in part.dialogue.split('\n')">{{stanza}}</p>
+					</div>
+				</div>
+
 			</li>
 		</ul>
 	</div>
@@ -35,9 +46,9 @@
 			//Next line
 			//MACBETH
 
-		    //Prithee, peace:
-		    //I dare do all that may become a man;
-		    //Who dares do more is none.
+		    // Prithee, peace:
+		    // I dare do all that may become a man;
+		    // Who dares do more is none.
 		}
 		
 	});

@@ -11,13 +11,29 @@
 	</head>
 	<body>
 	
-	<div id="app">
-		<span v-if="profile">
-			Profile of {{profile.fname}} {{profile.lname}} 
-		</span>
-		<span v-else>
-			No Profile Data found.
-		</span>
+	<div id="app" style="max-width: 300px; border: black 1px solid; text-align: center;">
+		<div v-if="profile.img">
+			<img v-bind:src="profile.img" v-bind:alt="profile.desc" />
+		</div>
+		<div v-else >
+			<img src="https://datacenterresources.com/wp-content/uploads/2017/06/missing-profile-photo.png" alt="missing profile pic" />
+		</div>
+		<h1>
+			<span v-if="profile">
+				Profile of {{profile.fname}} {{profile.lname}}
+			</span>
+			<span v-else>
+				No Profile Data found.
+			</span>
+		</h1>
+
+		<p v-if="profile.bio">
+			{{profile.bio}}
+		</p>
+		<p v-else>
+			No Bio Found
+		</p>
+
 	</div>
 	
 	<script>
@@ -25,12 +41,15 @@
 		el: '#app',
 		
 		data:{
-			/*
+
 			profile:{
-				fname: "John",
-				lname: "Doe"	
+				fname: "Christopher",
+				lname: "Jones",
+				desc: "Picture of Christopher Jones in bad lighting",
+				bio: "A competitive Full Stack Developer with an insatiable thirst for knowledge and a former Neuroscientist, Chris is driven on teams and as an individual and loves to make his clients be as excited about code as he is.",
+				img: "https://media-exp1.licdn.com/dms/image/C5603AQG8Xsvr5HOMyg/profile-displayphoto-shrink_200_200/0?e=1596067200&v=beta&t=3jEhY9IVtqZtPeTo_YscWXifCtvzCYCWXX5pR_oB9Co"
 			}
-			*/
+
 		}
 		
 	});
